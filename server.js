@@ -14,3 +14,7 @@ app.use(routes);
 app.listen(PORT, () => {
   console.log(`App listening on port ${PORT}!`);
 });
+
+
+// what do i need to set up this data base?
+// tink about it 
