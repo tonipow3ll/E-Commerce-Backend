@@ -11,7 +11,7 @@ through: {
   model: Category,
   unique: false
   },
-  as: 'product'
+  // as: 'product'
 })
 
 // Categories have many Products
@@ -21,7 +21,7 @@ through: {
   model: Product,
   unique: false,
   },
-  as: 'category'
+  // as: 'category'
 })
 
 // Products belongToMany Tags (through ProductTag)
@@ -31,7 +31,7 @@ Product.belongsToMany(ProductTag, {
     model: ProductTag,
     unique: true,
   },
-  as: 'product_tag'
+  // as: 'productTag'
 
 })
 
@@ -42,7 +42,7 @@ through: {
   model: Tag,
   unique: true,
 },
-as: 'tag_id'
+// as: 'tag_id'
 })
 
 
