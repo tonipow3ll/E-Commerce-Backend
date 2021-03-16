@@ -15,7 +15,7 @@ ProductTag.init(
    product_id: {
      type: DataTypes.INTEGER,
      references: {
-      model: 'product',
+      model: 'product_tag',
       key: 'id',
       unique: false,
     }
@@ -26,7 +26,7 @@ ProductTag.init(
     timestamps: false,
     freezeTableName: true,
     underscored: true,
-    modelName: 'product_tag',
+    modelName: 'productTag',
   }
 );
 
