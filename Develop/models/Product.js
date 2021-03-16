@@ -32,8 +32,12 @@ Product.init(
     },
     category_id: {
       type: DataTypes.INTEGER,
-      allowNull: false
-      // reference category model's id??
+      allowNull: false,
+      references: {
+        model: 'category',
+        key: 'id',
+        unique: false,
+      }
     }
   },
   {
@@ -46,3 +50,8 @@ Product.init(
 );
 
 module.exports = Product;
+// references: {
+//   model: 'traveller',
+//   key: 'id',
+//   unique: false
+// }
