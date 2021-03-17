@@ -25,21 +25,23 @@ through: {
 })
 
 // Products belongToMany Tags (through ProductTag)
-Product.belongsToMany(ProductTag, {
-  foreignKey: 'productTag_id',
+// foreignKey: 'productTag_id', duplicate column error
+// foreignKey: 'product_id', failed to open referenced table 'tag' error 
+Product.belongsToMany(Tag, {
+  foreignKey: 'product_id',
   through: {
     model: ProductTag,
     unique: true,
   },
-  // as: 'productTag'
+  // as: 'product_id'
 
 })
 
 // Tags belongToMany Products (through ProductTag)
 Tag.belongsToMany(ProductTag, {
-  foreignKey: 'productTag_id',
+  foreignKey: 'tag_id',
 through: {
-  model: Tag,
+  model: ProductTag,
   unique: true,
 },
 // as: 'tag_id'
