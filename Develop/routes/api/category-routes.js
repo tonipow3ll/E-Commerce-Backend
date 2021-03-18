@@ -42,37 +42,25 @@ router.post('/', async (req, res) => {
   }
 });
 
-// fix something here 
+// put works
 
   router.put('/:id', (req, res) => {
+    try{
     Category.update(req.body, {
       where: {
         id: req.params.id,
       },
-    })
-    if (!req.body.id) {
+    });
+    if (!req.body) {
       res.status(404).json({ message: 'No Category found with this ID' })
       return;
     }
     res.status(200).json({ message: 'Category Updated!'})
+  } catch (err) {
+    res.status(500).json(err)
+  }
 });
 
-// try {
-//   const travellerData = await Traveller.destroy({
-//     where: {
-//       id: req.params.id
-//     }
-//   });
-
-//   if (!travellerData) {
-//     res.status(404).json({ message: 'No traveller found with this id!' });
-//     return;
-//   }
-
-//   res.status(200).json(travellerData);
-// } catch (err) {
-//   res.status(500).json(err);
-// }
 
 router.delete('/:id', async (req, res) => {
   try {
