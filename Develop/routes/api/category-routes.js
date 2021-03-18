@@ -42,20 +42,19 @@ router.post('/', async (req, res) => {
   }
 });
 
-// update a category by its `id` value
-// NOT WORKING PROPERLY - GETTING 200 RES, NOT ACTUALLY UPDATING 
+// fix something here 
 
-router.put('/:id', async (req, res) => {
-  try {
-    const categoryData = await Category.findOne({
+  router.put('/:id', (req, res) => {
+    Category.update(req.body, {
       where: {
         id: req.params.id,
       },
     })
-    return res.status(200).json(categoryData);
-  } catch (err) {
-    res.status(400).json(err);
-  }
+    if (!req.body.id) {
+      res.status(404).json({ message: 'No Category found with this ID' })
+      return;
+    }
+    res.status(200).json({ message: 'Category Updated!'})
 });
 
 // try {

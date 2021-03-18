@@ -11,8 +11,8 @@ through: {
   model: Category,
   unique: false
   },
-  // as: 'product'
-})
+   as: 'product_id'
+});
 
 // Categories have many Products
 Category.belongsToMany(Product, {
@@ -22,7 +22,7 @@ through: {
   unique: false,
   },
   // as: 'category'
-})
+});
 
 // Products belongToMany Tags (through ProductTag)
 // foreignKey: 'productTag_id', duplicate column error
@@ -35,7 +35,7 @@ Product.belongsToMany(Tag, {
   },
   // as: 'product_id'
 
-})
+});
 
 // Tags belongToMany Products (through ProductTag)
 Tag.belongsToMany(ProductTag, {
@@ -45,7 +45,7 @@ through: {
   unique: true,
 },
 // as: 'tag_id'
-})
+});
 
 
 module.exports = {
@@ -54,24 +54,3 @@ module.exports = {
   Tag,
   ProductTag,
 };
-
-
-// Traveller.belongsToMany(Location, {
-//   // Define the third table needed to store the foreign keys
-//   through: {
-//     model: Trip,
-//     unique: false
-//   },
-//   // Define an alias for when data is retrieved
-//   as: 'planned_trips'
-// });
-
-// Location.belongsToMany(Traveller, {
-//   // Define the third table needed to store the foreign keys
-//   through: {
-//     model: Trip,
-//     unique: false
-//   },
-//   // Define an alias for when data is retrieved
-//   as: 'location_travellers'
-// });
