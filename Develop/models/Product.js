@@ -41,7 +41,7 @@ Product.init(
     }
   },
   {
-    sequelize,
+    sequelize, 
     timestamps: false,
     freezeTableName: true,
     underscored: true,
@@ -50,8 +50,3 @@ Product.init(
 );
 
 module.exports = Product;
-// references: {
-//   model: 'traveller',
-//   key: 'id',
-//   unique: false
-// }

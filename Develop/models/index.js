@@ -11,18 +11,20 @@ through: {
   model: Category,
   unique: false
   },
-   as: 'product_id'
+  //  as: 'product_id'
 });
 
 // Categories have many Products
-Category.belongsToMany(Product, {
-  foreignKey: 'product_id',
-through: {
-  model: Product,
-  unique: false,
-  },
-  // as: 'category'
+Category.hasMany(Product, {
+  // foreignKey: 'category_id',
+// through: {
+  // model: Product,
+  // unique: false,
+  // },
+  // as: 'category_id'
 });
+
+// many to many relationsihps below 
 
 // Products belongToMany Tags (through ProductTag)
 // foreignKey: 'productTag_id', duplicate column error
