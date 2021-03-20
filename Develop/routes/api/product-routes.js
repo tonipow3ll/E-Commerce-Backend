@@ -90,7 +90,7 @@ router.put('/:id', (req, res) => {
       },
     });
     if (!req.body) {
-      res.status(404).json({ message: 'No product found iwth this ID!' })
+      res.status(404).json({ message: 'No product found with this ID!' })
       return;
     }
     res.status(200).json({ message: 'Product updated!' })
