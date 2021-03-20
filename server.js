@@ -10,8 +10,8 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 
 app.use(routes);
-// ******** CURRENTLY SET TO FALSE - IF YOU WANT THIS TO CLEAR OUT YOUR CURRENT DB, PLEASE CHANGE TO FALSE, THEN START YOUR SERVER********
-sequelize.sync({ force: false }).then(() => {
+// ******** CURRENTLY SET TO true - RUNNING THIS FILE WILL CREATE A NEW DB WITH THESE MODELS, TO SEED, PLEASE CHANGE THIS TO FALSE, THEN RUN NPM RUN SEEDS IN TERMINAL********
+sequelize.sync({ force: true }).then(() => {
   // sync sequelize models to the database, then turn on the server
   app.listen(PORT, () => {
     console.log(`App listening on port ${PORT}!`);
