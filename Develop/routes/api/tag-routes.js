@@ -55,7 +55,7 @@ router.put('/:id', (req, res) => {
       res.status(404).json({ message: 'No Category found with this ID' })
       return;
     }
-    res.status(200).json({ message: 'Tag ID Updated!'})
+    res.status(200).json({ message: 'Tag Updated!'})
   } catch (err) {
     res.status(500).json(err)
   }
